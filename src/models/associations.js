@@ -58,6 +58,7 @@ Quiz.belongsToMany(Tag, {
   otherKey: "tag_id", // Facultatif
   as: "tags"
 });
+
 Tag.belongsToMany(Quiz, {
   through: "quiz_has_tag",
   foreignKey: "tag_id",

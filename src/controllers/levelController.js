@@ -30,9 +30,26 @@ const levelController = {
 
     } catch (error) {
 
-      console.error(error); // On log l'erreur pour que nous dev backend on puisse comprendre d'où elle vient et qu'elle ne se reproduise plus !
+      console.error(error); 
       res.status(500).render("500");
 
+    }
+  },
+  async deleteLevel(req, res){
+    if (! req.params.id) { 
+      res.redirect("/levels"); 
+      return;
+    }
+    try {
+      const levelId = req.params.id;
+      console.log("level_id ", levelId);
+      const levelToDelete = await Level.findByPk(levelId);
+      
+      await levelToDelete.destroy();
+      res.redirect("/levels");
+    } catch (error) {
+      console.error(error); 
+      res.status(500).render("500");
     }
   }
 };

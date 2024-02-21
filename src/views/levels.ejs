@@ -1,3 +1,5 @@
+<!-- <pre><code><%= JSON.stringify(levels) %></code></pre> -->
+
 <%- include('./partials/header') %>
 
 <!-- Avant même de faire des boucles ou autre, penser à afficher vos données pour vérifier que vous les récupérez bien ! -->
@@ -5,7 +7,6 @@
 <!-- <pre><code><%# JSON.stringify(levels) %></code></pre> -->
 
 <main class="container py-4">
-
   <!-- Toast en cas d'erreur -->
   <!-- <div class="alert alert-danger" role="alert">
     Une erreur s'est produite lors de l'enregistrement du niveau.
@@ -24,9 +25,9 @@
 
       <li class="mb-1">
         <span class="badge bg-info p-3"><%= level.name %></span>
-        <a class="btn btn-outline-info py-0 px-1 ms-3 fs-6 text-decoration-none" href="#">ÉDITER</a>
+        <a class="btn btn-outline-info py-0 px-1 ms-3 fs-6 text-decoration-none" href="/levels/<%= level.id %>">ÉDITER</a>
         <!-- Seules les 'method' GET & POST sont autorisées dans les FORM html. Du coup on ruse, même si les endpoints résultants ne sont pas très REST friendly -->
-        <form class="d-inline" action="/levels" method="POST">
+        <form class="d-inline" action="/levels/<%= level.id %>" method="POST">
           <input class="btn btn-outline-danger py-0 px-1 ms-3 fs-6" type="submit" value="SUPPRIMER">
         </form>
       </li>

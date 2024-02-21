@@ -12,6 +12,7 @@ const router = Router();
 router.get("/", mainController.renderHomePage);
 router.get("/levels", levelController.renderLevelsPage);
 router.post("/levels", levelController.createLevel);
+router.post("/levels/:id", levelController.deleteLevel);
 router.get("/quiz/:quiz_id", quizController.renderQuizPage);
 router.get("/tags", tagController.renderAllTagsPage);
 router.get("/signup", userController.signUp);

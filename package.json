@@ -1,0 +1,35 @@
+{
+  "name": "s05-oquiz-red-enzoclock",
+  "version": "1.0.0",
+  "description": "Plateforme de quizzes - Muffin",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "quiz",
+    "questions",
+    "LMS"
+  ],
+  "author": "muffin@oclock.io",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "db:create": "psql -U oquiz -d oquiz -f ./data/create_tables.sql",
+    "db:populate": "psql -U oquiz -d oquiz -f ./data/populate_tables.sql",
+    "db:reset": "npm run db:create && npm run db:populate"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.4",
+    "ejs": "^3.1.9",
+    "email-validator": "^2.0.4",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "sequelize": "^6.37.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.3"
+  }
+}
